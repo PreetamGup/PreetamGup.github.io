@@ -7,7 +7,7 @@
 
 - 📫 How to reach me **guptaprita285@gmail.com**
 
-- 📄 Know about my experiences [https://www.overleaf.com/project/6475adc0cb3f099a37169a9d](https://www.overleaf.com/project/6475adc0cb3f099a37169a9d)
+- 📄 Know about my experiences [https://my.newtonschool.co/user/guptapritam285](https://my.newtonschool.co/user/guptapritam285)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">

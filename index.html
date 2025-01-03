@@ -286,6 +286,43 @@
             color: white;
         }
 
+        .profile-image {
+    position: relative;
+    z-index: 2;
+    margin-right: 4rem;
+}
+
+.profile-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-image {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-image img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
@@ -346,6 +383,10 @@
             <div class="code-line">  skills: ['React', 'Node.js', 'MongoDB'],</div>
             <div class="code-line">  passion: 'Building awesome web apps'</div>
             <div class="code-line">};</div>
+        </div>
+
+        <div class="profile-image">
+            <img src="/api/placeholder/300/300" alt="Preetam Kumar Gupta" class="float-animation">
         </div>
         
         <div class="hero-content">

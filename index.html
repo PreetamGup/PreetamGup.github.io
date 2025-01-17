@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preetam Kumar - MERN Stack Developer</title>
+    <title>Preetam Kumar Gupta - MERN Stack Developer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -143,63 +143,142 @@
             to { transform: translateY(-50%); }
         }
 
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
+       .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s;
-        }
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    transition: all 0.3s;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1));
-            opacity: 0;
-            transition: all 0.3s;
-        }
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1));
+    opacity: 0;
+    transition: all 0.3s;
+}
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
+.project-card:hover::before {
+    opacity: 1;
+}
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+.project-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
 
-        .project-links a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            z-index:10;
-        }
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease;
+}
 
-        .project-links a:hover {
-            transform: translateY(-3px);
-        }
+.project-image:hover {
+    transform: scale(1.05);
+}
 
+.project-title {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.project-description ul li {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.project-description::-webkit-scrollbar {
+    width: 4px;
+}
+
+.project-description::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.project-description::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.project-tech {
+    margin: 0.75rem 0;
+    font-size: 0.9rem;
+    color: var(--highlight);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.project-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.project-links a:hover {
+    transform: translateY(-3px);
+    color: var(--highlight);
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .project-card {
+        height: auto;
+        min-height: 550px;
+    }
+
+    .project-image-container {
+        height: 180px;
+    }
+}
         /* Skills Section */
         .skills-container {
             display: flex;
@@ -434,86 +513,140 @@
     </section>
 
     <section id="projects">
-        <h2 class="section-title" style="color: var(--primary); margin: 2rem; text-align: center; text-shadow: 0px 0px 10px var(--highlight);">Featured Projects</h2>
-        
-        <div class="projects-grid">
-        
-         <div class="project-card">
-    <img src="https://i.postimg.cc/zGkjZk01/rasrajmocup.jpg" alt="Rasraj Foods" style="width: 100%; border-radius: 5px; margin-bottom: 1rem;">
-    <h3 style="color: var(--primary);">Rasraj Foods</h3>
-    <p>
-        This website, designed for selling foods online, features mobile number login with OTP verification, token storage using cookies, and Redis for caching and OTP verification. It includes a separate admin panel for managing products and orders, along with payment integrations. The website is fully mobile-responsive and ensures a seamless user experience.
-    </p>
-    <p style="font-weight: bold; color: var(--primary); margin-top: 1rem;">Tech Stack Used:</p>
-    <p style="margin-bottom: 1rem;">React, TypeScript, Tailwind CSS, Node.js, Express.js, bcrypt, JWT, MongoDB,Razoarpay, Redis</p>
-    <div class="project-links" style="margin-top: 1rem;">
-        <a href="https://rasraj-foods.vercel.app/"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fas fa-external-link-alt"></i></a>
-    </div>
-</div>
-        
-            <div class="project-card">
-    <img src="https://cdn.pixabay.com/photo/2018/06/08/00/47/online-3461400_960_720.png" alt="Web Tools Project" style="width: 100%; border-radius: 5px; margin-bottom: 1rem;">
-    <h3 style="color: var(--primary);">Web Tools</h3>
-    <p>
-        Developed a web tool using Next.js with a focus on performance and SEO optimization, currently handling approximately 4,000 monthly visitors. Achieved top rankings on Google and other search engines for targeted keywords. Features include server-side rendering, dynamic routing, and efficient API integrations. Integrated Google Analytics to monitor traffic and user behavior, optimizing the tool for scalability and SEO, which contributed to its high visibility and traffic growth.
-    </p>
-    <p style="font-weight: bold; color: var(--primary); margin-top: 1rem;">Tech Stack Used:</p>
-    <p style="margin-bottom: 1rem;">Next.js, Tailwind CSS, Gemini API</p>
-    <div class="project-links" style="margin-top: 1rem;">
-        <a href="https://github.com/PreetamGup/"><i class="fab fa-github"></i></a>
-        <a href="/"><i class="fas fa-external-link-alt"></i></a>
-    </div>
-</div>
+    <h2 class="section-title" style="color: var(--primary); margin: 2rem; text-align: center; text-shadow: 0px 0px 10px var(--highlight);">Featured Projects</h2>
+    
+    <div class="projects-grid">
+        <!-- Rasraj Foods -->
+        <div class="project-card">
+            <div class="project-image-container">
+                <img src="https://i.postimg.cc/zGkjZk01/rasrajmocup.jpg" alt="Rasraj Foods" class="project-image">
+            </div>
+            <h3 class="project-title">Rasraj Foods</h3>
+            <div class="project-description">
+                <p>A comprehensive online food ordering platform featuring:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                    <li>• Mobile number login with OTP verification</li>
+                    <li>• Token-based authentication using cookies</li>
+                    <li>• Redis integration for caching and OTP</li>
+                    <li>• Admin panel for product and order management</li>
+                    <li>• Integrated payment system</li>
+                    <li>• Fully responsive design</li>
+                </ul>
+            </div>
+            <div class="project-tech">
+                <p><strong>Tech Stack:</strong> React, TypeScript, Tailwind CSS, Node.js, Express.js, MongoDB, Redis, Razorpay</p>
+            </div>
+            <div class="project-links">
+                <a href="https://rasraj-foods.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/PreetamGup/RasrajFoods" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
 
-            
-            <div class="project-card">
-    <img src="https://i.postimg.cc/CKVB21h5/screencapture-localhost-3000-2025-01-17-16-59-29.png" alt="Fantastic Funnel" style="width: 100%; border-radius: 5px; margin-bottom: 1rem;">
-    <h3 style="color: var(--primary);">Fantastic Funnel</h3>
-    <p>
-        This website, still in development, is for selling web templates. Users can browse multiple templates and purchase them, while sellers can list their templates for sale on the platform. Features include email verification during registration and password recovery using Nodemailer, and image storage using Cloudinary. The platform offers separate user interfaces for customers and admins.
-    </p>
-    <p style="font-weight: bold; color: var(--primary); margin-top: 1rem;">Tech Stack Used:</p>
-    <p style="margin-bottom: 1rem;">React, Express.js, Cloudinary, MongoDB, Nodemailer</p>
-    <div class="project-links" style="margin-top: 1rem;">
-        <a href="https://github.com/InfoVisionIt/FuntasticFunnel" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://funtastic-funnel-client.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        <!-- Web Tools -->
+        <div class="project-card">
+            <div class="project-image-container">
+                <img src="https://cdn.pixabay.com/photo/2018/06/08/00/47/online-3461400_960_720.png" alt="Web Tools Project" class="project-image">
+            </div>
+            <h3 class="project-title">Web Tools</h3>
+            <div class="project-description">
+                <p>A high-performance web tool built with Next.js:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                    <li>• Serving 4,000+ monthly visitors</li>
+                    <li>• Optimized for SEO with top rankings</li>
+                    <li>• Server-side rendering implementation</li>
+                    <li>• Dynamic routing capabilities</li>
+                    <li>• Google Analytics integration</li>
+                    <li>• Performance-optimized architecture</li>
+                </ul>
+            </div>
+            <div class="project-tech">
+                <p><strong>Tech Stack:</strong> Next.js, Tailwind CSS, Gemini API</p>
+            </div>
+            <div class="project-links">
+                <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/PreetamGup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <!-- Fantastic Funnel -->
+        <div class="project-card">
+            <div class="project-image-container">
+                <img src="https://i.postimg.cc/CKVB21h5/screencapture-localhost-3000-2025-01-17-16-59-29.png" alt="Fantastic Funnel" class="project-image">
+            </div>
+            <h3 class="project-title">Fantastic Funnel</h3>
+            <div class="project-description">
+                <p>A web template marketplace platform featuring:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                    <li>• Secure email verification system</li>
+                    <li>• Password recovery via Nodemailer</li>
+                    <li>• Cloudinary image storage integration</li>
+                    <li>• Multi-user role support</li>
+                    <li>• Template listing and purchasing</li>
+                    <li>• Dedicated admin interface</li>
+                </ul>
+            </div>
+            <div class="project-tech">
+                <p><strong>Tech Stack:</strong> React, Express.js, MongoDB, Cloudinary, Nodemailer</p>
+            </div>
+            <div class="project-links">
+                <a href="https://funtastic-funnel-client.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/InfoVisionIt/FuntasticFunnel" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <!-- Cybersecurity Course Platform -->
+        <div class="project-card">
+            <div class="project-image-container">
+                <img src="https://i.postimg.cc/zXKZXmwh/encryptic-security.png" alt="Cybersecurity Course Platform" class="project-image">
+            </div>
+            <h3 class="project-title">Cybersecurity Course Platform</h3>
+            <div class="project-description">
+                <p>A comprehensive learning platform featuring:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                    <li>• Secure user authentication</li>
+                    <li>• MVC architecture implementation</li>
+                    <li>• Password encryption with bcrypt</li>
+                    <li>• JWT-based authentication</li>
+                    <li>• Secure cookie management</li>
+                    <li>• Admin course management</li>
+                </ul>
+            </div>
+            <div class="project-tech">
+                <p><strong>Tech Stack:</strong> React, Node.js, Express.js, MongoDB, JWT, Ant Design</p>
+            </div>
+            <div class="project-links">
+                <a href="https://encryptic-security.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/PreetamGup/EncrypticSecurity_CyberCourse" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <!-- Doctor Appointment App -->
+        <div class="project-card">
+            <div class="project-image-container">
+                <img src="https://i.postimg.cc/QdKD79rF/doctornow.png" alt="Doctor Appointment App" class="project-image">
+            </div>
+            <h3 class="project-title">Doctor Appointment App</h3>
+            <div class="project-description">
+                <p>A full-featured appointment booking system with:</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 0.5rem;">
+                    <li>• Complete CRUD functionality</li>
+                    <li>• Secure user authentication</li>
+                    <li>• MVC architecture</li>
+                    <li>• Password encryption</li>
+                    <li>• Admin dashboard</li>
+                    <li>• Appointment management</li>
+                </ul>
+            </div>
+            <div class="project-tech">
+                <p><strong>Tech Stack:</strong> React, Node.js, Express.js, MongoDB, JWT, Ant Design</p>
+            </div>
+            <div class="project-links">
+                <a href="https://doctor-app-s1pl.onrender.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/PreetamGup/Doctor_App2" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
     </div>
-</div>
-
-        
-            <div class="project-card">
-    <img src="https://i.postimg.cc/zXKZXmwh/encryptic-security.png" alt="Cybersecurity Course Platform" style="width: 100%; border-radius: 5px; margin-bottom: 1rem;">
-    <h3 style="color: var(--primary);">Cybersecurity Course Platform</h3>
-    <p>
-        Full-stack course platform with secure authentication and admin capabilities. It uses MVC architecture in the backend (Express). During registration, passwords are encrypted using bcrypt, and authentication is handled with JWT during login. Tokens are securely stored in cookies. T
-    </p>
-    <p style="font-weight: bold; color: var(--primary); margin-top: 1rem;">Tech Stack Used:</p>
-    <p style="margin-bottom: 1rem;">React, JavaScript, Ant Design, CSS, Node.js, Express.js, bcrypt, JWT, MongoDB, Mongoose, dotenv, CORS.</p>
-    <div class="project-links" style="margin-top: 1rem;">
-        <a href="https://github.com/PreetamGup/EncrypticSecurity_CyberCourse" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://encryptic-security.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-    </div>
-</div>
-
-
-            
-            <div class="project-card">
-    <img src="https://i.postimg.cc/QdKD79rF/doctornow.png" alt="Doctor Appointment App" style="width: 100%; border-radius: 5px; margin-bottom: 1rem;">
-    <h3 style="color: var(--primary);">Doctor Appointment App</h3>
-    <p>
-        MERN stack appointment booking system with full CRUD functionality. It uses MVC architecture in the backend (Express). During registration, passwords are encrypted using bcrypt, and authentication is handled with JWT during login. The app includes a separate admin panel and supports complete CRUD operations for managing appointments.
-    </p>
-    <p style="font-weight: bold; color: var(--primary); margin-top: 1rem;">Tech Stack Used:</p>
-    <p style="margin-bottom: 1rem;">React, JavaScript, Ant Design, CSS, Node.js, Express.js, bcrypt, JWT, MongoDB, Mongoose, dotenv, CORS.</p>
-    <div class="project-links" style="margin-top: 1rem;">
-        <a href="https://github.com/PreetamGup/Doctor_App2" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://doctor-app-s1pl.onrender.com/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-    </div>
-</div>
-
-        
-    </section>
+</section>
 
     <section id="skills">
         <h2 class="section-title" style="color: var(--primary); margin: 2rem; text-align: center; text-shadow: 0px 0px 10px var(--highlight);">Tech Stack</h2>
